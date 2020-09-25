@@ -5,7 +5,7 @@
             <h2>Shopping List</h2>
             <div class="field" id="addItemsButton">
                 <div class="control">
-                    <button type='button' name="addItems" value="AddItems" class="button is-link">Add Items</button>
+                    <button type='button' name="addItems" value="AddItems" class="button is-success is-outlined">Add Items</button>
                 </div>
             </div>
             <form action='/grocery/add' method="POST" id="addItems">
@@ -43,7 +43,7 @@
                 
                 <div class="field is-grouped is-grouped-centered">
                     <div class="control">
-                        <button type='submit' name="add" value="Add" class="button is-link">Add</button>
+                        <button type='submit' name="add" value="Add" class="button is-success">Add</button>
                     </div>
                     <div class="control">
                         <button type='button' name="close" value="Close" class="button" id="closeAddItems">Close</button>
@@ -59,14 +59,24 @@
                             if (!grocery.completed){
                                 return `<li>
                                     <input type="checkbox" class="todo" id="${grocery.id}" name ="id" value="${grocery.id}">
-                                    <label for="${grocery.id}">${grocery.qty} ${grocery.units} ${grocery.item}</label>
+                                    <label for="${grocery.id}">${grocery.item}, ${grocery.qty} ${grocery.units}</label>
+                                        <button class="button is-small" type="submit" name="add" value="Add">
+                                        <span class="icon is-small">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <button class="button is-small" type="submit" name="subtract" value="Subtract">
+                                        <span class="icon is-small">
+                                            <i class="fas fa-minus"></i>
+                                        </span>
+                                    </button>
                                 </li>`
                             }
                         }).join('')}
                     </dl>
                     <div class="field is-grouped is-grouped-centered">
                         <div class="control">
-                            <button class="button is-link" type="submit" name="update" value="Update" ${list.filter(grocery => !grocery.completed).length ? '' : 'disabled'}>Update</button>
+                            <button class="button is-success" type="submit" name="update" value="Update" ${list.filter(grocery => !grocery.completed).length ? '' : 'disabled'}>Got It!</button>
                         </div>
                         <div class="control">
                             <button class="button is-link is-danger" type="submit" name="delete" value="Delete" ${list.filter(grocery => !grocery.completed).length ? '' : 'disabled'}>Delete</button>
@@ -83,17 +93,17 @@
                             if (grocery.completed){
                                 return `<li>
                                     <input type="checkbox" class="todo" id="${grocery.id}" name ="id" value="${grocery.id}">
-                                    <label for="${grocery.id}"><del>${grocery.qty} ${grocery.units} ${grocery.item}<del></label>
+                                    <label for="${grocery.id}"><del>${grocery.item}, ${grocery.qty} ${grocery.units}<del></label>
                                 </li>`
                             }
                         }).join('')}
                     </dl>
                     <div class="field is-grouped is-grouped-centered">
                         <div class="control">
-                            <button type='submit' name="undo" value="Undo" class="button is-link" ${list.filter(grocery => grocery.completed).length ? '' : 'disabled'}>Move to Shopping List</button>
+                            <button type='submit' name="undo" value="Undo" class="button is-success" ${list.filter(grocery => grocery.completed).length ? '' : 'disabled'}>Move Back to Shopping List</button>
                         </div>
                         <div class="control">
-                            <button type='submit' name="pantry" value="Pantry" class="button is-link" ${list.filter(grocery=>
+                            <button type='submit' name="pantry" value="Pantry" class="button is-success" ${list.filter(grocery=>
                                 grocery.completed).length ? '' : 'disabled'}>Move to Pantry</button>
                         </div>
                     </div>

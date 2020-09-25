@@ -5,7 +5,7 @@
             <h2>Pantry List</h2>
             <div class="field" id="addItemsButton">
                 <div class="control">
-                    <button type='button' name="addItems" value="AddItems" class="button is-link">Add Items</button>
+                    <button type='button' name="addItems" value="AddItems" class="button is-success is-outlined">Add Items</button>
                 </div>
             </div>
             <form action='/pantry/add' method="POST" id="addItems">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="field is-grouped is-grouped-centered">
                     <div class="control">
-                        <button type='submit' name="add" value="Add" class="button is-link">Add</button>
+                        <button type='submit' name="add" value="Add" class="button is-success">Add</button>
                     </div>
                     <div class="control">
                         <button type='button' name="close" value="Close" class="button" id="closeAddItems">Close</button>
@@ -51,20 +51,32 @@
                             if (!pantryItem.completed){
                                 return `<li>
                                     <input type="checkbox" class="todo" id="${pantryItem.id}" name ="id" value="${pantryItem.id}">
-                                    <label for="${pantryItem.id}"> ${pantryItem.item}, <input type="text" id="qty" name="${pantryItem.id}" value="${pantryItem.qty}"> ${pantryItem.units}</label>
+                                    <label for="${pantryItem.id}"> ${pantryItem.item}, <input type="text" id="qty" name="${pantryItem.id}" value="${pantryItem.qty}" style="width: 50px"> ${pantryItem.units}</label>
+                                        <button class="button is-small" type="submit" name="add" value="Add" id="add">
+                                            <span class="icon is-small">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <button class="button is-small" type="submit" name="subtract" value="Subtract" id="subtract">
+                                            <span class="icon is-small">
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
                                 </li>`
                             }
                         }).join('')}
                     </dl>
                     <div class="field is-grouped is-grouped-centered">
                         <div class="control">
-                            <button class="button is-link" type="submit" name="update" value="Update">Update</button>
+                            <button class="button is-success" type="submit" name="update" value="Update">Update </button>
                         </div>
                         <div class="control">
-                            <button class="button is-link is-danger" type="submit" name="delete" value="Delete">Delete</button>
+                            <button class="button is-danger" type="submit" name="delete" value="Delete">Delete</button>
                         </div>
+                    </div>
+                    <div class="field is-centered">
                         <div class="control">
-                            <button class="button is-link is-danger" type="submit" name="grocery" value="Grocery">Add to Shopping</button>
+                            <button class="button is-success" type="submit" name="grocery" value="Grocery">Move to Shopping List</button>
                         </div>
                     </div>
                 </form>

@@ -24,11 +24,11 @@ router.post('/', async (req, res) =>{
             if (id !== 'update'){
                 await theList.updatePantryList(id, req.body[id])
             }
-        }
- 
+        } 
         console.log(req.body)
         await res.redirect('/pantry')
     }
+
     if (req.body.grocery === 'Grocery'){
         const pantryList = await theList.getPantryList(req.session.user_id)
         console.log(pantryList)
