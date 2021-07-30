@@ -4,7 +4,7 @@ function get(url) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": "619a10ef17mshd13e544bf683a12p181861jsn82b20c24ddbd"
+            "x-rapidapi-key": "61745be2d2msh8d44bac48ed1f66p10f08ejsn073b645c92f1"
         }
     })
         //Step2: Run the json() method from the server response
