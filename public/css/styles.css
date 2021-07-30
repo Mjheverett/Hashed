@@ -169,3 +169,55 @@ dl {
 .card-class :hover{
     transform: 1.5;
 }
+
+/* styling paper */
+.paper {
+    width: 600px;
+    height: auto;
+    position: relative;
+    margin: 20px auto;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-color: white;
+    min-height: 400px;
+    box-shadow: 0px 0px 5px 0px #888;
+  }
+  
+  /* styling red vertical line */
+  .paper::before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    background-color: rgba(255,0,0,0.6);
+  }
+  
+  /* styling blue horizontal lines */
+  .pattern {
+    height: 100%;
+    min-height: 300px;
+    background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+  }
+  
+  /* styling text content */
+  .grocery-list {
+    padding-top: 6px;
+    padding-left: 56px;
+    padding-right: 16px;
+    line-height: 19px;
+    font-size: 19px;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    margin-top: 0em !important; /*I know this is terrible...*/
+  }
+
+  .grocery-paper{
+      align-items: flex-start;
+      padding-top:22px;
+  }
+
+  .is-active{
+      color: black;
+  }

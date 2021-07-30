@@ -45,22 +45,28 @@
             <section>
                 <h4>Things to buy:</h4>
                 <form action="/grocery/update" method="POST" id="grocery-form">
-                    <dl style="list-style-type: none;"> 
-                        ${list.map(grocery =>{
-                            if (!grocery.completed){
-                                return `<li class="grocery-list" id="list ${grocery.id}">
-                                    <input type="checkbox" class="todo" id="${grocery.id}" name ="id" value="${grocery.id}">
-                                    <input type="text" class="grocery-list-input-qty" id="qty ${grocery.id}" name="update" value="${grocery.qty}" hidden>
-                                    <input type="text" class="grocery-list-input-unit" id="unit ${grocery.id}" name="update" value="${grocery.units}" hidden>
-                                    <input type="text" class="grocery-list-input-item" id="item ${grocery.id}" name="update" value="${grocery.item}" hidden>
-                                    <label id="groceryItem ${grocery.id}" for="${grocery.id}">${grocery.qty} ${grocery.units} ${grocery.item}</label>
-                                    <i name="edit" class="hide edit far fa-edit button is-white" id="edit ${grocery.id}"></i>
-                                    <button type="submit" name="updateItem" class="updateItem button fas fa-check is-white has-text-primary hide" id="updateItem ${grocery.id}" value="submit"></button>
+                    <div class="paper">
+                        <div class="pattern">
+                            <div class="content">
+                                <dl class="grocery-paper" style="list-style-type: none;"> 
+                                    ${list.map(grocery =>{
+                                        if (!grocery.completed){
+                                            return `<li class="grocery-list" id="list ${grocery.id}">
+                                                <input type="checkbox" class="todo" id="${grocery.id}" name ="id" value="${grocery.id}">
+                                                <input type="text" class="grocery-list-input-qty" id="qty ${grocery.id}" name="update" value="${grocery.qty}" hidden>
+                                                <input type="text" class="grocery-list-input-unit" id="unit ${grocery.id}" name="update" value="${grocery.units}" hidden>
+                                                <input type="text" class="grocery-list-input-item" id="item ${grocery.id}" name="update" value="${grocery.item}" hidden>
+                                                <label id="groceryItem ${grocery.id}" for="${grocery.id}">${grocery.qty} ${grocery.units} ${grocery.item}</label>
+                                                <i name="edit" class="hide edit far fa-edit button is-white" id="edit ${grocery.id}"></i>
+                                                <button type="submit" name="updateItem" class="updateItem button fas fa-check is-white has-text-primary hide" id="updateItem ${grocery.id}" value="submit"></button>
 
-                                </li>`
-                            }
-                        }).join('')}
-                    </dl>
+                                            </li>`
+                                        }
+                                    }).join('')}
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
                     <div class="field is-grouped is-grouped-centered">
                         <div class="control">
                             <button class="button is-primary" type="submit" name="updateChecked" value="Update" ${list.filter(grocery => !grocery.completed).length ? '' : 'disabled'}>Got It!</button>
